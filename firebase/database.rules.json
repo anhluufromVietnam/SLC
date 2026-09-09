@@ -1,0 +1,11 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": false,
+    "presence": { "$uid": { ".write": "auth != null && auth.uid === $uid" } },
+    "notifications": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "lessonProgress": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": "auth != null && auth.uid === $uid" } },
+    "uploadStatus": { "$uploadId": { ".read": "auth != null", ".write": false } },
+    "fileMetadata": { "$fileId": { ".read": "auth != null", ".write": false } }
+  }
+}
